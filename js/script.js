@@ -20,13 +20,6 @@ function onDOMReady() {
   });
 
   ppt.stepChanged();
-
-	/*var rect = document.getElementById('rect');
-    Velocity(rect, { left: "500px", top: "200px" });
-    Velocity(rect, { "backgroundColorGreen" : "255" });
-    Velocity(rect, { height: 50, width: 50 });
-    Velocity(rect, { rotateZ: 90, scaleX: 0.5 });
-    Velocity(rect, "reverse", { delay: 250 });*/
 }
 
 document.addEventListener('DOMContentLoaded', onDOMReady);
@@ -229,7 +222,7 @@ var ElementTracer = [
     { display : "block", fn : "handleDownloadSong"}
   ],
   [
-    // download song disappears
+    // download song disappears, and readFile becomes current task.
     { display : "block", position : { y : 130, x : 0 }, fn : "handleCodeTrace" },
     { display : "none", fn : "handleV8Convo"},
     { display : "none", fn : "handleLibuvConvo"},
@@ -237,6 +230,7 @@ var ElementTracer = [
     { display : "none", fn : "handleDownloadSong"}
   ],
   [
+	// libuv done with readFile
     { display : "block", position : { y : 170, x : 0 }, fn : "handleCodeTrace" },
     { display : "none", fn : "handleV8Convo"},
     { display : "block", fn : "handleLibuvConvo", text : "Hey, I'm done! <br>Calling <em>cbSettingsRead</em>"},
@@ -244,6 +238,7 @@ var ElementTracer = [
     { display : "none", fn : "handleDownloadSong"}
   ],
   [
+	// everythis is over.
     { display : "none", position : { y : 170, x : 0 }, fn : "handleCodeTrace" },
     { display : "none", fn : "handleV8Convo" },
     { display : "none", fn : "handleLibuvConvo" },
