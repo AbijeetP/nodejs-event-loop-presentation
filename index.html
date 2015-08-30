@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    Node.JS Event Loop
+  </title>
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Itim' rel='stylesheet' type='text/css'>
+  <link href="dist/highlightjs/styles/vs.css" rel="stylesheet" type="text/css">
+</head>
+<body class="non-responsive" id="mainBody">
+  <div class="first-container">
+    <div id="dvConvoV8" class="convo-div">
+      <p>Hey libuv, can you please read this file for me? Oh and when you are done, call <em>cbSettingsRead</em></p>
+      <div class="arrow-down-right"></div>
+    </div>
+    <img id="v8Logo" src="img/v8.png" alt="v8" title="v8 Logo">
+  </div>
+  <div class="mid-container">
+    <div class="section-heading">
+      Our code
+    </div>
+    <pre>
+      <code class="node,js">// Load the filesystem library
+var fs = require('fs')
+
+function readSettingsFile() {
+  // Write code to read the file.
+  // Callback called once done.
+  fs.readFile("settings.json", cbSettingsRead);
+}
+
+function cbSettingsRead(err, data) {
+  if(err) {
+      // There was an error while
+      // reading the file.
+  } else {
+      // file was read, update the settings.
+  }
+}
+
+function initDefaultSettings() {
+  // Initialize default settings.
+}
+
+readSettingsFile();
+initDefaultSettings();</code>
+    </pre>
+    <div class="code-stack">
+      <div id="codeTracer" class="arrow-left"></div>
+      <ol>
+        <li><em>readSettingsFile</em> is called by <strong>V8</strong>.</li>
+        <li><em>fs.readFile</em> is called by <strong>V8</strong>.</li>
+        <li><strong>v8</strong> then runs <em>initDefaultSettings</em>.</li>
+        <li><strong>libuv</strong> tries to reads the file.</li>
+        <li><strong>libuv</strong> calls cbSettingsRead with the result.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="last-container">
+    <!-- Event Loop Container -->
+    <div id="dvConvoLibuv" class="convo-div">
+      <p>OK, sure! <br>Send it over.</p>
+      <div class="arrow-right"></div>
+    </div>
+    <div id="eventLoopContainer">
+      <img id="libuvLogo" src="img/libuv.png" alt="Libuv logo" title="Libuv Logo">
+      <div id="tskDownloadFile" class="current-task">Download song</div>
+      <div id="tskReadFile">Read file</div>
+    </div>
+    <div class="clear-fix section-heading">
+      The Event Loop
+    </div>
+  </div>
+  <div class="clear-fix"></div>
+  <!-- Script files -->
+  <script type="text/javascript" src="dist/velocity/velocity.js"></script>
+  <script type="text/javascript" src="dist/lodash/lodash.js"></script>
+  <script type="text/javascript" src="dist/highlightjs/highlight.pack.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

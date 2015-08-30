@@ -1,0 +1,260 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*************************
+* End of CSS reseter
+*************************/
+#mainBody {
+	width : 970px;
+	margin:auto;
+	margin-top:9em;
+	font-size:15px;
+	font-family: 'Itim', sans-serif;
+	background-color:#e1e1e1;
+}
+#mainBody > div {
+	float: left;
+	padding:15px;
+	position: relative;
+}
+
+#mainBody .first-container {
+	width:145px;
+}
+
+#mainBody .mid-container {
+	width:460px;
+  margin-top: -100px;
+}
+
+#mainBody .last-container {
+	width:270px;
+}
+
+/************************
+ * Logo
+ ************************/
+#v8Logo {
+	width: 145px;
+	margin-top:120px;
+}
+#libuvLogo {
+	width:160px;
+	position:absolute;
+	top:-115px;
+	left:45px;
+	z-index:98;
+}
+/*************************
+ * End of logo
+ ************************/
+
+/************************
+ * Code blocks
+ ************************/
+.code-stack {
+	font-size:1.2em;
+	position: relative;
+	margin-top:-0.7em;
+}
+
+.code-stack ol li {
+	list-style-type: decimal;
+	line-height: 40px;
+	padding:0px 5px;
+}
+.code-stack ol li:nth-child(odd) {
+		background-color: #e1e1e1;
+}
+.code-stack ol li:nth-child(even) {
+	background-color: #fff;
+}
+.code-stack ol {
+	margin-left:2em;
+}
+
+.code-stack strong {
+	font-weight:bold;
+}
+
+.code-stack em {
+	font-style: italic;
+	font-family: 'Consolas', 'Andale Mono', monospace;
+	font-size:0.9em;
+}
+
+pre code {
+	font-family: 'Consolas', 'Andale Mono', monospace;
+	border-radius: 8px;
+  padding: 10px 15px !important;
+}
+pre code *::selection {
+	background:#ffff00 !important;
+}
+pre code::selection {
+	background:#ffff00 !important;
+}
+
+/************************
+ * End of code blocks
+ ***********************/
+
+
+/*************************
+ * Node.JS DIV
+ ************************/
+#dvConvoV8 {
+
+}
+#dvConvoLibuv {
+	top:-70px;
+	left:-160px;
+	height:3em;
+	width: 200px;
+}
+/************************
+ * End of Node.JS DIV
+************************/
+
+
+/**************************
+ * Event Loop DIV
+ *************************/
+#eventLoopContainer {
+	height: 460px;
+	border:1px solid #6e6e6e;
+	border-radius:4px;
+	position: relative;
+	padding:10px;
+  background-color: #fff;
+}
+
+#eventLoopContainer > div {
+	margin-top:10px;
+	height:4em;
+	line-height: 4em;
+	text-align: center;
+	font-size:1.3em;
+	border:1px solid #6e6e6e;
+	color:#3e3e3e;
+	border-radius:4px;
+}
+
+#eventLoopContainer .current-task {
+	background-color:green;
+	color: #fff;
+}
+
+.section-heading {
+	font-weight: bold;
+	font-size:1.3em;
+	padding:10px;
+	text-align: center;
+}
+
+.hidden {
+	display : none !important;
+}
+/*************************
+ * End of event loop DIV
+ ************************/
+
+.convo-div {
+	width: 270px;
+	border-radius: 40px;
+	line-height: 1.5em;
+	border: 1px solid;
+	position: absolute;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	padding: 15px;
+	font-family: monospace;
+	z-index: 99;
+	display:none;
+}
+.convo-div em {
+	font-weight: bold;
+	color: #ffff00;
+}
+.arrow-down-right, .arrow-right {
+	width: 0;
+	height: 0;
+	position:absolute;
+	z-index: 100;
+}
+.arrow-down-right {
+	border-left: 20px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 25px solid black;
+  bottom: -20px;
+  left:15%;
+}
+.arrow-right {
+	border-top: 20px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-left: 26px solid black;
+	left: 98%;
+	bottom: 18px;
+	z-index: 100;
+}
+.arrow-left {
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 15px solid blue;
+}
+.clear-fix {
+	clear:both;
+}
+
+#codeTracer {
+	display: none;
+	right: 0%;
+	position: absolute;
+}
+
+#tskSendMail {
+	display : none;
+}
